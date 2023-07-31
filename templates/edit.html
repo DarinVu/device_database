@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}Edit A Device{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <h1>{{ device_name }}</h1>
+
+      {{ render_form(form, novalidate=True) }}
+      <h1>OR</h1>
+      <p class="space-above">
+        <a href="{{ url_for('delete', device_name=device_name) }}">Remove</a>
+      </p>
+      <p class="space-above">
+        <a href="{{ url_for('devices') }}">Back</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

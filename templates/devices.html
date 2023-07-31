@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}All Devices{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>All Devices</h1>
+
+      <table class="table" style="color: white">
+        <tr>
+          <th scope="col">Device Name</th>
+          <th scope="col">IP Address</th>
+          <th scope="col">Status</th>
+          <th scope="col"> </th>
+        </tr>
+        {% for device in all_devices %}
+        <tr>
+          <td>{{ device.name }}</td>
+          <td>{{ device.ip }}</td>
+          <td>{{ device.status }}</td>
+          <td><a href="{{ url_for('edit', device_name= device.name) }}">Edit/Remove</a></td>
+
+        </tr>
+        {% endfor %}
+      </table>
+      <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+      <p><a href="{{ url_for('add') }}">Add a Device</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
